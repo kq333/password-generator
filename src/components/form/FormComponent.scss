@@ -2,7 +2,7 @@
     background-color: #262626;
     max-width: 400px;
     width: 100%;
-    padding: 15px 20px;
+    padding: 25px 20px;
     margin: auto;
 
     &__header {
@@ -13,10 +13,12 @@
     &__wrapper {
         background-color: #4d4b4b;
         margin-top: 20px;
+        padding-bottom: 20px;
     }
 
     &__checkbox-wrapper {
         margin-top: 20px;
+        padding: 0 20px;
     }
 
     &__checkbox-component {
@@ -24,7 +26,6 @@
     }
 
     &__submit-elem {
-        width: 100%;
         background-color: #4d7c0f;
         display: flex;
         justify-content: center;
