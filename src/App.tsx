@@ -1,16 +1,8 @@
-import { useState } from 'react';
-
-import { PasswordDisplay } from './components/passwordDisplay';
+import { FormComponent } from './components/form';
 import './App.scss';
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return (
-    <div>
-     <PasswordDisplay passwordGenerated={'344444'}/>
-    </div>
-  );
+  return <FormComponent />;
 }
 
 export default App;
