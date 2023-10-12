@@ -7,7 +7,7 @@ interface Props {
   htmlFor: string;
   text: string;
   name: string;
-  value: string;
+  checked: boolean;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -16,7 +16,8 @@ export const InputUniversal: React.FC<Props> = ({
   htmlFor,
   text,
   name,
-  value,
+  checked,
+  onChange,
 }) => {
   return (
     <div className='input-checkbox'>
@@ -25,7 +26,8 @@ export const InputUniversal: React.FC<Props> = ({
         type='checkbox'
         id={id}
         name={name}
-        value={value}
+        checked={checked}
+        onChange={onChange}
       />
       <label className='input-checkbox__label' htmlFor={htmlFor}>
         {text}
