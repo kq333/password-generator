@@ -1,17 +1,16 @@
 .input-checkbox {
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
+  display: flex;
+  align-items: center;
 
-    &__value {
-        input[type="checkbox"]:checked {
-            background-color: red;
-            color: #fff;
-          }
-    }
-
-    &__label {
-      padding-left: 15px;
-      color: #ffffff;
+  &__value {
+    input[type='checkbox']:checked {
+      background-color: red;
+      color: #fff;
     }
   }
+
+  &__label {
+    padding-left: 15px;
+    color: #ffffff;
+  }
+}
