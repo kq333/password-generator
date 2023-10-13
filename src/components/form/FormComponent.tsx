@@ -124,6 +124,7 @@ export const FormComponent = () => {
       setNumber(false);
       setSymbols(false);
       setSelectedInputs(0);
+      setFinalPassword('')
     }
 
     if (+passwordInputLength < selectedInputs) {
@@ -132,6 +133,7 @@ export const FormComponent = () => {
       setNumber(false);
       setSymbols(false);
       setSelectedInputs(0);
+      setFinalPassword('')
     }
   }, [
     uppercaseLetter,
