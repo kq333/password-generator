@@ -7,7 +7,7 @@ interface Props {
 
 export const PasswordStrength: React.FC<Props> = ({ passwordInputLength }) => {
   const [passwordStrength, setPasswordStrength] = useState('');
-  const [passwordLevel, setpasswordLevel] = useState(0);
+  const [passwordLevel, setPasswordLevel] = useState(0);
 
   useEffect(() => {
     const levelStrength =
@@ -22,20 +22,20 @@ export const PasswordStrength: React.FC<Props> = ({ passwordInputLength }) => {
     setPasswordStrength(levelStrength);
 
     if (levelStrength === 'weak') {
-      setpasswordLevel(1);
+      setPasswordLevel(1);
     } else if (levelStrength === 'medium') {
-      setpasswordLevel(2);
+      setPasswordLevel(2);
     } else if (levelStrength === 'strong') {
-      setpasswordLevel(3);
+      setPasswordLevel(3);
     } else {
-      setpasswordLevel(0);
+      setPasswordLevel(0);
     }
   }, [passwordInputLength, passwordLevel, passwordStrength]);
 
   const getClassElem = (index: number) => {
     if (+passwordInputLength === 0) {
       return 'strength-elem__strength-level-elem';
-      setpasswordLevel(0);
+      setPasswordLevel(0);
     }
 
     if (passwordLevel === 1) {
