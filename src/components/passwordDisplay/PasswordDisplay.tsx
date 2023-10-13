@@ -9,19 +9,21 @@ interface Props {
 export const PasswordDisplay: React.FC<Props> = ({ passwordGenerated }) => {
   const [isCoped, setIsCoped] = useState(false);
 
-  const addClassToIcon = isCoped && passwordGenerated.length > 0
-    ? 'password__icon--isActive'
-    : 'password__icon';
+  const addClassToIcon =
+    isCoped && passwordGenerated.length > 0
+      ? 'password__icon--isActive'
+      : 'password__icon';
 
   useEffect(() => {
-    setTimeout(() => {
-      if (isCoped) {
+    if (isCoped) {
+      setTimeout(() => {
         setIsCoped(false);
-      }
-    }, 2000);
+      }, 2000);
+    }
   }, [isCoped]);
 
   const handlerCopyPassword = () => {
+    if (passwordGenerated.length > 0) {
     const tempInput = document.createElement('input');
     tempInput.value = passwordGenerated;
 
@@ -34,6 +36,7 @@ export const PasswordDisplay: React.FC<Props> = ({ passwordGenerated }) => {
 
     setIsCoped(!isCoped);
     document.body.removeChild(tempInput);
+  }
   };
 
   return (
