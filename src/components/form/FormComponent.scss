@@ -7,7 +7,8 @@
 
     &__header {
         text-align: center;
-        color: aliceblue;
+        color: #adadad;
+        letter-spacing: 1.5px;
     }
 
     &__wrapper {
@@ -26,15 +27,19 @@
     }
 
     &__submit-elem {
-        background-color: #4d7c0f;
+        background-color: #ffffff;
         display: flex;
         justify-content: center;
         gap: 10px;
         padding: 10px 0;
+        pointer-events: none;
 
-        &:hover {
-            cursor: pointer;
-            opacity: 0.75;
+        &--isActive {
+            background-color: #4d7c0f;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px 0;
         }
     }
 
@@ -48,4 +53,11 @@
             cursor: pointer;
         }
     }
+}
+
+.form-app {
+    width: auto;
+    height: 100vh;
+    display: flex;
+    align-items: center;
 }
