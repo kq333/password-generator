@@ -11,11 +11,11 @@ export const PasswordStrength: React.FC<Props> = ({ passwordInputLength }) => {
 
   useEffect(() => {
     const levelStrength =
-      passwordInputLength <= 5
+      passwordInputLength <= 8
         ? 'weak'
-        : passwordInputLength >= 6 && passwordInputLength <= 8
+        : passwordInputLength >=9  && passwordInputLength <= 13
         ? 'medium'
-        : passwordInputLength >= 9
+        : passwordInputLength >= 14
         ? 'strong'
         : '';
 
