@@ -123,8 +123,24 @@ export const FormComponent = () => {
       setLowercaseLetter(false);
       setNumber(false);
       setSymbols(false);
+      setSelectedInputs(0);
     }
-  }, [uppercaseLetter, lowercaseLetter, number, symbols, passwordInputLength]);
+
+    if (+passwordInputLength < selectedInputs) {
+      setUppercaseLetter(false);
+      setLowercaseLetter(false);
+      setNumber(false);
+      setSymbols(false);
+      setSelectedInputs(0);
+    }
+  }, [
+    uppercaseLetter,
+    lowercaseLetter,
+    number,
+    symbols,
+    passwordInputLength,
+    selectedInputs,
+  ]);
 
   const generatePassword = (e: React.FormEvent) => {
     e.preventDefault();
