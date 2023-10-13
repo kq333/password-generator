@@ -118,22 +118,13 @@ export const FormComponent = () => {
     const updatedFinalPassword = addItemsToState(prevPassword);
     setPrevPassword(updatedFinalPassword);
 
-    if (+passwordInputLength === 0) {
+    if (+passwordInputLength === 0 || +passwordInputLength < selectedInputs) {
       setUppercaseLetter(false);
       setLowercaseLetter(false);
       setNumber(false);
       setSymbols(false);
       setSelectedInputs(0);
-      setFinalPassword('')
-    }
-
-    if (+passwordInputLength < selectedInputs) {
-      setUppercaseLetter(false);
-      setLowercaseLetter(false);
-      setNumber(false);
-      setSymbols(false);
-      setSelectedInputs(0);
-      setFinalPassword('')
+      setFinalPassword('');
     }
   }, [
     uppercaseLetter,
