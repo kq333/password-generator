@@ -11,6 +11,10 @@
     padding-left: 30px;
     cursor: pointer;
 
+    @media(max-width: 319px) {
+      font-size: 0.9em;
+    }
+
     &::before {
       content: '';
       position: absolute;
