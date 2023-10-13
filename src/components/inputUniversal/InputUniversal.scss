@@ -3,14 +3,40 @@
   align-items: center;
 
   &__value {
-    input[type='checkbox']:checked {
-      background-color: red;
-      color: #fff;
-    }
+    display: none;
   }
 
   &__label {
-    padding-left: 15px;
-    color: #ffffff;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 15px;
+      height: 15px;
+      border: 2px solid #504e4e;
+      background-color: #ffffff;
+    }
+
+    &::after {
+      content: '\2713';
+      display: none;
+      color: #fff;
+      margin-left: -25px;
+      position: absolute;
+      margin-top: -22px;
+    }
+  }
+
+  &__value:checked + &__label::before {
+    background-color: #4d7c0f;
+  }
+
+  &__value:checked + &__label::after {
+    display: block;
   }
 }
