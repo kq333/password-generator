@@ -24,6 +24,12 @@
 
     &__checkbox-component {
         padding: 5px 0;
+
+        &--isActive {
+            pointer-events: none;
+
+            padding: 5px 0;
+        }
     }
 
     &__submit-elem {
