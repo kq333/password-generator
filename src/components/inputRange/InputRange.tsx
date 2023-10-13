@@ -27,7 +27,7 @@ export const InputRange: React.FC<Props> = ({ passwordLength }) => {
           <input
             type='range'
             min={0}
-            max={10}
+            max={15}
             value={inputRange}
             onChange={handlerInput}
             step={1}
