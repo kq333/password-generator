@@ -18,25 +18,70 @@ export const FormComponent = () => {
   const [symbols, setSymbols] = useState(false);
   const [prevPassword, setPrevPassword] = useState<string[]>([]);
   const [finalPassword, setFinalPassword] = useState('');
+  const [selectedInputs, setSelectedInputs] = useState(0);
 
   const passwordLength = (passwordRangeValue: string) => {
     setPasswordInputLength(passwordRangeValue);
   };
 
   const handleUppercase = (): void => {
-    setUppercaseLetter(!uppercaseLetter);
+    if (!uppercaseLetter && +passwordInputLength === selectedInputs) {
+      return;
+    }
+
+    if (uppercaseLetter && +passwordInputLength >= selectedInputs) {
+      setSelectedInputs((prevElem) => prevElem - 1);
+      setUppercaseLetter(!uppercaseLetter);
+    }
+    if (!uppercaseLetter && +passwordInputLength > selectedInputs) {
+      setSelectedInputs((prevElem) => prevElem + 1);
+      setUppercaseLetter(!uppercaseLetter);
+    }
   };
 
   const handleLowercase = (): void => {
-    setLowercaseLetter(!lowercaseLetter);
+    if (!lowercaseLetter && +passwordInputLength === selectedInputs) {
+      return;
+    }
+
+    if (lowercaseLetter && +passwordInputLength >= selectedInputs) {
+      setSelectedInputs((prevElem) => prevElem - 1);
+      setLowercaseLetter(!lowercaseLetter);
+    }
+    if (!lowercaseLetter && +passwordInputLength > selectedInputs) {
+      setSelectedInputs((prevElem) => prevElem + 1);
+      setLowercaseLetter(!lowercaseLetter);
+    }
   };
 
   const handleNumber = (): void => {
-    setNumber(!number);
+    if (!number && +passwordInputLength === selectedInputs) {
+      return;
+    }
+
+    if (number && +passwordInputLength >= selectedInputs) {
+      setSelectedInputs((prevElem) => prevElem - 1);
+      setNumber(!number);
+    }
+    if (!number && +passwordInputLength > selectedInputs) {
+      setSelectedInputs((prevElem) => prevElem + 1);
+      setNumber(!number);
+    }
   };
 
   const handleSymbols = (): void => {
-    setSymbols(!symbols);
+    if (!symbols && +passwordInputLength === selectedInputs) {
+      return;
+    }
+
+    if (symbols && +passwordInputLength >= selectedInputs) {
+      setSelectedInputs((prevElem) => prevElem - 1);
+      setSymbols(!symbols);
+    }
+    if (!symbols && +passwordInputLength > selectedInputs) {
+      setSelectedInputs((prevElem) => prevElem + 1);
+      setSymbols(!symbols);
+    }
   };
 
   useEffect(() => {
@@ -72,7 +117,14 @@ export const FormComponent = () => {
 
     const updatedFinalPassword = addItemsToState(prevPassword);
     setPrevPassword(updatedFinalPassword);
-  }, [uppercaseLetter, lowercaseLetter, number, symbols]);
+
+    if (+passwordInputLength === 0) {
+      setUppercaseLetter(false);
+      setLowercaseLetter(false);
+      setNumber(false);
+      setSymbols(false);
+    }
+  }, [uppercaseLetter, lowercaseLetter, number, symbols, passwordInputLength]);
 
   const generatePassword = (e: React.FormEvent) => {
     e.preventDefault();
