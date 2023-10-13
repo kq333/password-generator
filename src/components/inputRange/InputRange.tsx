@@ -11,7 +11,7 @@ export const InputRange: React.FC<Props> = ({ passwordLength }) => {
 
   const handlerInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
-    setInputRange(newValue);
+    setInputRange(+newValue);
     passwordLength(newValue);
   };
 

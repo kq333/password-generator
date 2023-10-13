@@ -11,11 +11,11 @@ export const PasswordStrength: React.FC<Props> = ({ passwordInputLength }) => {
 
   useEffect(() => {
     const levelStrength =
-      passwordInputLength <= 8
+      +passwordInputLength <= 8
         ? 'weak'
-        : passwordInputLength >=9  && passwordInputLength <= 13
+        : +passwordInputLength >=9  && +passwordInputLength <= 13
         ? 'medium'
-        : passwordInputLength >= 14
+        : +passwordInputLength >= 14
         ? 'strong'
         : '';
 
@@ -59,11 +59,11 @@ export const PasswordStrength: React.FC<Props> = ({ passwordInputLength }) => {
 
         <div className='strength-elem__strength-level'>
           <div className='strength-elem__strength-level-name'>
-            {passwordInputLength > 0 ? passwordStrength : ''}
+            {+passwordInputLength > 0 ? passwordStrength : ''}
           </div>
 
           <div className='strength-elem__strength-level-list'>
-            {[0, 1, 2, 3].map((elem: number, index: number) => (
+            {[0, 1, 2, 3].map((index: number) => (
               <div key={index} className={getClassElem(index)}></div>
             ))}
           </div>

@@ -40,7 +40,7 @@ export const FormComponent = () => {
   };
 
   useEffect(() => {
-    const addItemsToState = (prevFinalPassword) => {
+    const addItemsToState = (prevFinalPassword: string[]) => {
       let updatedFinalPassword = [...prevFinalPassword];
 
       if (uppercaseLetter) {
@@ -70,13 +70,14 @@ export const FormComponent = () => {
       return updatedFinalPassword;
     };
 
-    setPrevPassword((prevFinalPassword) => addItemsToState(prevFinalPassword));
+    const updatedFinalPassword = addItemsToState(prevPassword);
+    setPrevPassword(updatedFinalPassword);
   }, [uppercaseLetter, lowercaseLetter, number, symbols]);
 
   const generatePassword = (e: React.FormEvent) => {
     e.preventDefault();
 
-    let selectedData = [];
+    let selectedData: string[] = [];
 
     if (uppercaseLetter) {
       selectedData = selectedData.concat(
@@ -119,7 +120,7 @@ export const FormComponent = () => {
         password += keySymbols[randomIndex];
       }
 
-      while (password.length < requiredLength) {
+      while (password.length < +requiredLength) {
         const randomIndex = Math.floor(Math.random() * selectedData.length);
         password += selectedData.splice(randomIndex, 1);
       }
